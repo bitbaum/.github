@@ -27,20 +27,42 @@ any licence the project adopts in future. You keep your copyright and every
 right to use your own work elsewhere. This grant is what makes it possible to
 relicense without tracking down every past contributor for consent.
 
-Pull requests from outside the organisation are merged by an automated sweep
-(`bitbaum/fleet`, `scripts/ci/auto-merge-sweep.sh`) that checks for the
-sign-off on every commit and holds the PR, naming the commit, until it is
-there. Members commit under the maintainer's own identity and are not asked
-to certify to themselves.
+## How an outside pull request merges
+
+An automated sweep (`bitbaum/fleet`, `scripts/ci/auto-merge-sweep.sh`) merges
+a pull request from outside the organisation once two things are true:
+
+1. **every commit is signed off**, and
+2. **a maintainer has approved the pull request's latest commit.**
+
+Until both hold, the sweep leaves the pull request open and says which is
+missing. The two are separate on purpose: the sign-off settles licensing, and
+the review settles whether the code is safe to run — every repository here
+deploys on merge. An approval covers the commit it was given on; pushing a new
+commit needs a new approval.
+
+Members commit under the maintainer's own identity and are not asked to
+certify to themselves.
+
+## Credit, and what it is worth today
+
+Your name stays on your commits, and the organisation's nightly origin proofs
+timestamp them.
+
+A governed rule in Solon — `originator_share`, version 1 — sends a tenth of a
+product's net revenue to the originators of the code it uses. Today an
+originator means a repository's first author, there is no revenue yet, and a
+contribution to an existing repository earns no share. Changing that is a
+Solon vote, not a promise this file can make.
 
 ## Origin
 
 Git dates are set by whoever commits, so they prove nothing about who was
 first. The organisation stamps every repository's HEAD nightly through
 OpenTimestamps and asks Software Heritage to archive it, and publishes the
-proofs in `bitbaum/fleet` under `proofs/origin/` and the readable ledger at
-<https://bitbaum.orangecat.ch/#origin>. Your signed-off commit becomes part
-of that record the night it lands.
+proofs in `bitbaum/fleet` under `proofs/origin/` and the readable register at
+<https://github.com/bitbaum/fleet/blob/main/registers/origin.json>. Your
+signed-off commit becomes part of that record the night it lands.
 
 ## The usual
 
